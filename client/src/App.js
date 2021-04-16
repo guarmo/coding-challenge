@@ -14,7 +14,7 @@ function App() {
     store.dispatch(getData());
   }, []);
 
-  // @todo1 be able to add layer that displays geoJson data that I managed to fetch
+  // @todo1 be able to add layer that displays geoJson data that I managed to fetch √
 
   // @todo2 be able to input a city/country name that generates a bbox that then triggers
   // a new fetch of geoJson data of that specific bbox. This city data is also
