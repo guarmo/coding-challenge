@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   try {
     // Gather information in osm format
     const response = await axios.get(
-      "https://api.openstreetmap.org/api/0.6/map?bbox=11.54,48.14,11.543,48.145"
+      "https://api.openstreetmap.org/api/0.6/map?bbox=-1.967771,38.656963,-1.943051,38.674119"
     );
 
     // Convert to geoJson / Flip lat long

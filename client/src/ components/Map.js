@@ -36,13 +36,13 @@ const Map = ({ data: { geoJson, loading, error } }) => {
             </button>
             <button
               onClick={() => setShowPolygons(!showPolygons)}
-              className="mx-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="mx-2 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
             >
               {showPolygons ? "Hide Polygons" : "Show Polygons"}
             </button>
             <button
               onClick={() => setShowLines(!showLines)}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
             >
               {showLines ? "Hide Lines" : "Show Lines"}
             </button>
@@ -101,7 +101,7 @@ const Map = ({ data: { geoJson, loading, error } }) => {
                 (feature) =>
                   feature.geometry.type === "LineString" && (
                     <Polyline
-                      pathOptions={{ color: "red" }}
+                      pathOptions={{ color: "green" }}
                       positions={[feature.geometry.coordinates]}
                     >
                       <Popup>
