@@ -3,27 +3,28 @@ import { connect } from "react-redux";
 import {
   MapContainer,
   TileLayer,
-  GeoJSON,
   Marker,
   Popup,
-  LayerGroup,
-  LayersControl,
-  Circle,
   Polygon,
   Polyline,
-  CircleMarker,
-  Rectangle,
 } from "react-leaflet";
 
-const Map = ({ data }) => {
+import Spinner from "./Spinner";
+import NoData from "./NoData";
+
+const Map = ({ data: { geoJson, loading, center } }) => {
   const [showPoints, setShowPoints] = useState(true);
-  const [showPolygons, setShowPolygons] = useState(false);
-  const [showLines, setShowLines] = useState(false);
+  const [showPolygons, setShowPolygons] = useState(true);
+  const [showLines, setShowLines] = useState(true);
 
   return (
     <>
-      {!data.geoJson ? (
-        <h1>Loading...</h1>
+      {!geoJson || geoJson.features === [] ? (
+        loading ? (
+          <Spinner />
+        ) : (
+          <NoData />
+        )
       ) : (
         <>
           <div className="mt-10">
@@ -31,25 +32,25 @@ const Map = ({ data }) => {
               onClick={() => setShowPoints(!showPoints)}
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
-              Show Points
+              {showPoints ? "Hide Points" : "Show Points"}
             </button>
             <button
               onClick={() => setShowPolygons(!showPolygons)}
-              className="mx-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="mx-2 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
             >
-              Show Polygons
+              {showPolygons ? "Hide Polygons" : "Show Polygons"}
             </button>
             <button
               onClick={() => setShowLines(!showLines)}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
             >
-              Show Lines
+              {showLines ? "Hide Lines" : "Show Lines"}
             </button>
           </div>
           <MapContainer
             className="w-full h-full mt-10"
-            center={[48.1414957, 11.5476037]}
-            zoom={13}
+            center={center}
+            zoom={10}
             scrollWheelZoom={false}
           >
             <TileLayer
@@ -59,7 +60,7 @@ const Map = ({ data }) => {
 
             {/* Points */}
             {showPoints &&
-              data.geoJson.features.map(
+              geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "Point" && (
                     <Marker position={feature.geometry.coordinates}>
@@ -76,7 +77,7 @@ const Map = ({ data }) => {
 
             {/* Polygons */}
             {showPolygons &&
-              data.geoJson.features.map(
+              geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "Polygon" && (
                     <Polygon
@@ -96,11 +97,11 @@ const Map = ({ data }) => {
 
             {/* Lines */}
             {showLines &&
-              data.geoJson.features.map(
+              geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "LineString" && (
                     <Polyline
-                      pathOptions={{ color: "red" }}
+                      pathOptions={{ color: "green" }}
                       positions={[feature.geometry.coordinates]}
                     >
                       <Popup>
