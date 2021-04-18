@@ -18,7 +18,7 @@ router.get("/:query", async (req, res) => {
     const geoJson = flip(osmtogeojson(response.data));
     res.json(geoJson);
   } catch (err) {
-    console.error(err.message);
+    console.error(`Api: ${err.message}`);
     res.status(500).send("Server Error");
   }
 });

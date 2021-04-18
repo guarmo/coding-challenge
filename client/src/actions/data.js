@@ -1,4 +1,10 @@
-import { GET_DATA, CLEAR_DATA, SET_LOADING } from "./types";
+import {
+  GET_DATA,
+  CLEAR_DATA,
+  SET_LOADING,
+  SET_ERROR,
+  CLEAR_ERROR,
+} from "./types";
 import axios from "axios";
 
 // Get Data
@@ -14,19 +20,15 @@ export const getData = (coords) => async (dispatch) => {
       },
     });
   } catch (err) {
-    console.error(err);
+    console.error(`Action: ${err}`);
   }
 };
 
 // Clear Data
 export const clearData = () => async (dispatch) => {
-  try {
-    dispatch({
-      type: CLEAR_DATA,
-    });
-  } catch (err) {
-    console.error(err);
-  }
+  dispatch({
+    type: CLEAR_DATA,
+  });
 };
 
 // Set Loading
@@ -37,6 +39,20 @@ export const setLoading = (bool) => async (dispatch) => {
       payload: bool,
     });
   } catch (err) {
-    console.error(err);
+    console.error(`Action: ${err}`);
   }
+};
+
+// Set Error
+export const setError = () => async (dispatch) => {
+  dispatch({
+    type: SET_ERROR,
+  });
+};
+
+// Clear Error
+export const clearError = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_ERROR,
+  });
 };
