@@ -20,7 +20,10 @@ export default function data(state = initialState, action) {
     case GET_DATA:
       return {
         ...state,
-        center: payload.center,
+        center: [
+          (payload.coords[1] + payload.coords[4]) / 2,
+          (payload.coords[0] + payload.coords[3]) / 2,
+        ],
         geoJson: payload.geoJson,
       };
     case CLEAR_DATA:

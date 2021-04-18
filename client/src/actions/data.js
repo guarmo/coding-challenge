@@ -16,7 +16,7 @@ export const getData = (coords) => async (dispatch) => {
       type: GET_DATA,
       payload: {
         geoJson: res.data,
-        center: [(coords[1] + coords[4]) / 2, (coords[0] + coords[3]) / 2],
+        coords: coords,
       },
     });
   } catch (err) {
