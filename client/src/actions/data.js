@@ -4,7 +4,7 @@ import axios from "axios";
 // Get Data
 export const getData = (coords) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/data`);
+    const res = await axios.get(`/api/data/${coords}`);
 
     dispatch({
       type: GET_DATA,
