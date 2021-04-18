@@ -3,29 +3,28 @@ import { connect } from "react-redux";
 import {
   MapContainer,
   TileLayer,
-  GeoJSON,
   Marker,
   Popup,
-  LayerGroup,
-  LayersControl,
-  Circle,
   Polygon,
   Polyline,
-  CircleMarker,
-  Rectangle,
 } from "react-leaflet";
 
 import Spinner from "./Spinner";
+import NoData from "./NoData";
 
-const Map = ({ data }) => {
+const Map = ({ data: { geoJson, loading, error } }) => {
   const [showPoints, setShowPoints] = useState(true);
   const [showPolygons, setShowPolygons] = useState(true);
   const [showLines, setShowLines] = useState(true);
 
   return (
     <>
-      {!data.geoJson ? (
-        <Spinner />
+      {!geoJson ? (
+        loading ? (
+          <Spinner />
+        ) : (
+          <NoData />
+        )
       ) : (
         <>
           <div className="mt-10">
@@ -61,7 +60,7 @@ const Map = ({ data }) => {
 
             {/* Points */}
             {showPoints &&
-              data.geoJson.features.map(
+              geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "Point" && (
                     <Marker position={feature.geometry.coordinates}>
@@ -78,7 +77,7 @@ const Map = ({ data }) => {
 
             {/* Polygons */}
             {showPolygons &&
-              data.geoJson.features.map(
+              geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "Polygon" && (
                     <Polygon
@@ -98,7 +97,7 @@ const Map = ({ data }) => {
 
             {/* Lines */}
             {showLines &&
-              data.geoJson.features.map(
+              geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "LineString" && (
                     <Polyline

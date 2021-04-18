@@ -7,11 +7,17 @@ import store from "./store";
 import Map from "./ components/Map";
 import Input from "./ components/Input";
 
-import { getData } from "./actions/data";
+import { getData, setLoading } from "./actions/data";
 
-function App() {
+const setLoadingAndFetch = async () => {
+  store.dispatch(setLoading(true));
+  await store.dispatch(getData());
+  store.dispatch(setLoading(false));
+};
+
+const App = () => {
   useEffect(() => {
-    store.dispatch(getData());
+    setLoadingAndFetch();
   }, []);
 
   // @todo1 be able to add layer that displays geoJson data that I managed to fetch √
@@ -31,6 +37,6 @@ function App() {
       </div>
     </Provider>
   );
-}
+};
 
 export default App;
