@@ -18,11 +18,12 @@ export default function data(state = initialState, action) {
 
   switch (type) {
     case GET_DATA:
+      const arr = payload.coords.split(",");
       return {
         ...state,
-        center: [
-          (payload.coords[1] + payload.coords[4]) / 2,
-          (payload.coords[0] + payload.coords[3]) / 2,
+        center: payload.coords && [
+          (Number(arr[1]) + Number(arr[3])) / 2,
+          (Number(arr[0]) + Number(arr[2])) / 2,
         ],
         geoJson: payload.geoJson,
       };

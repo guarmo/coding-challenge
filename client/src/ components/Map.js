@@ -50,7 +50,7 @@ const Map = ({ data: { geoJson, loading, center } }) => {
           <MapContainer
             className="w-full h-full mt-10"
             center={center}
-            zoom={10}
+            zoom={14}
             scrollWheelZoom={false}
           >
             <TileLayer
