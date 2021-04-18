@@ -15,15 +15,17 @@ import {
   Rectangle,
 } from "react-leaflet";
 
+import Spinner from "./Spinner";
+
 const Map = ({ data }) => {
   const [showPoints, setShowPoints] = useState(true);
-  const [showPolygons, setShowPolygons] = useState(false);
-  const [showLines, setShowLines] = useState(false);
+  const [showPolygons, setShowPolygons] = useState(true);
+  const [showLines, setShowLines] = useState(true);
 
   return (
     <>
       {!data.geoJson ? (
-        <h1>Loading...</h1>
+        <Spinner />
       ) : (
         <>
           <div className="mt-10">
@@ -31,19 +33,19 @@ const Map = ({ data }) => {
               onClick={() => setShowPoints(!showPoints)}
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
-              Show Points
+              {showPoints ? "Hide Points" : "Show Points"}
             </button>
             <button
               onClick={() => setShowPolygons(!showPolygons)}
               className="mx-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
-              Show Polygons
+              {showPolygons ? "Hide Polygons" : "Show Polygons"}
             </button>
             <button
               onClick={() => setShowLines(!showLines)}
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
-              Show Lines
+              {showLines ? "Hide Lines" : "Show Lines"}
             </button>
           </div>
           <MapContainer
