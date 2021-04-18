@@ -1,5 +1,4 @@
-import { GET_DATA, SET_LOADING } from "../actions/types";
-import calculateCenter from "../utils/calculateCenter";
+import { GET_DATA, SET_LOADING, CLEAR_DATA } from "../actions/types";
 
 const initialState = {
   loading: false,
@@ -14,8 +13,13 @@ export default function data(state = initialState, action) {
     case GET_DATA:
       return {
         ...state,
-        center: calculateCenter(payload.coords),
+        center: payload.center,
         geoJson: payload.geoJson,
+      };
+    case CLEAR_DATA:
+      return {
+        ...state,
+        geoJson: null,
       };
     case SET_LOADING:
       return {

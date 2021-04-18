@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import setLoadingAndFetch from "../utils/setLoadingAndFetch";
+import { clearData } from "../actions/data";
+import { connect } from "react-redux";
 
-const Input = () => {
+const Form = ({ clearData }) => {
   const [coords, setCoords] = useState("");
 
   return (
     <form
       onSubmit={async (e) => {
         e.preventDefault();
+        await clearData();
         await setLoadingAndFetch(coords);
         setCoords("");
       }}
@@ -29,4 +32,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default connect(null, { clearData })(Form);

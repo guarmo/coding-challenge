@@ -1,4 +1,4 @@
-import { GET_DATA, SET_CENTER, SET_LOADING } from "./types";
+import { GET_DATA, CLEAR_DATA, SET_LOADING } from "./types";
 import axios from "axios";
 
 // Get Data
@@ -10,8 +10,19 @@ export const getData = (coords) => async (dispatch) => {
       type: GET_DATA,
       payload: {
         geoJson: res.data,
-        coords: coords,
+        center: [(coords[1] + coords[4]) / 2, (coords[0] + coords[3]) / 2],
       },
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+// Clear Data
+export const clearData = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: CLEAR_DATA,
     });
   } catch (err) {
     console.error(err);

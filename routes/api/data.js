@@ -13,6 +13,7 @@ router.get("/:query", async (req, res) => {
     const response = await axios.get(
       `https://api.openstreetmap.org/api/0.6/map?bbox=${req.params.query}`
     );
+
     // Convert to geoJson / Flip lat long
     const geoJson = flip(osmtogeojson(response.data));
     res.json(geoJson);

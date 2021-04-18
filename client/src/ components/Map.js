@@ -12,14 +12,14 @@ import {
 import Spinner from "./Spinner";
 import NoData from "./NoData";
 
-const Map = ({ data: { geoJson, loading } }) => {
+const Map = ({ data: { geoJson, loading, center } }) => {
   const [showPoints, setShowPoints] = useState(true);
   const [showPolygons, setShowPolygons] = useState(true);
   const [showLines, setShowLines] = useState(true);
 
   return (
     <>
-      {!geoJson ? (
+      {!geoJson || geoJson.features === [] ? (
         loading ? (
           <Spinner />
         ) : (
@@ -49,8 +49,8 @@ const Map = ({ data: { geoJson, loading } }) => {
           </div>
           <MapContainer
             className="w-full h-full mt-10"
-            center={[38.656963, -1.967771]}
-            zoom={13}
+            center={center}
+            zoom={10}
             scrollWheelZoom={false}
           >
             <TileLayer

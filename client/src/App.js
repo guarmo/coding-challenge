@@ -5,21 +5,19 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import Map from "./ components/Map";
-import Input from "./ components/Input";
+import Form from "./ components/Form";
 
 import setLoadingAndFetch from "./utils/setLoadingAndFetch";
-import calculateCenter from "./utils/calculateCenter";
 
 const App = () => {
   useEffect(() => {
-    setLoadingAndFetch("-1.967771,38.656963,-1.943051,38.674119");
-    calculateCenter("-1.967771,38.656963,-1.943051,38.674119");
+    setLoadingAndFetch("11.54,48.14,11.543,48.145");
   }, []);
 
   return (
     <Provider store={store}>
       <div className="flex flex-col items-center bg-gray-600 h-screen w-screen p-10">
-        <Input />
+        <Form />
         <Map />
       </div>
     </Provider>
