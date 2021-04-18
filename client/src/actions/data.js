@@ -1,4 +1,4 @@
-import { GET_DATA, SET_LOADING } from "./types";
+import { GET_DATA, SET_CENTER, SET_LOADING } from "./types";
 import axios from "axios";
 
 // Get Data
@@ -8,7 +8,10 @@ export const getData = (coords) => async (dispatch) => {
 
     dispatch({
       type: GET_DATA,
-      payload: res.data,
+      payload: {
+        geoJson: res.data,
+        coords: coords,
+      },
     });
   } catch (err) {
     console.error(err);

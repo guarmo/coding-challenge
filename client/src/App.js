@@ -8,10 +8,12 @@ import Map from "./ components/Map";
 import Input from "./ components/Input";
 
 import setLoadingAndFetch from "./utils/setLoadingAndFetch";
+import calculateCenter from "./utils/calculateCenter";
 
 const App = () => {
   useEffect(() => {
     setLoadingAndFetch("-1.967771,38.656963,-1.943051,38.674119");
+    calculateCenter("-1.967771,38.656963,-1.943051,38.674119");
   }, []);
 
   return (
