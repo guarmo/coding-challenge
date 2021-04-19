@@ -21,6 +21,10 @@ export const getData = (coords) => async (dispatch) => {
     });
   } catch (err) {
     console.error(`Action: ${err}`);
+    dispatch({
+      type: SET_ERROR,
+      payload: err.message,
+    });
   }
 };
 
@@ -40,6 +44,10 @@ export const setLoading = (bool) => async (dispatch) => {
     });
   } catch (err) {
     console.error(`Action: ${err}`);
+    dispatch({
+      type: SET_ERROR,
+      payload: err.message,
+    });
   }
 };
 
