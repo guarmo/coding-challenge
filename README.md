@@ -15,11 +15,11 @@ This coding challenge consists of a single page web application that:
 - Flips latitude and longitude using [Geojson-flip](https://www.npmjs.com/package/geojson-flip)
 - Displays the dataset on a map using [Leaflet](https://leafletjs.com/) and [React-leaflet](https://react-leaflet.js.org/)
 - Shares state across components using [Redux](https://redux.js.org/)
-- Has an integrated custom express server from which calls to the external API are performed
+- Has an integrated custom [express](https://expressjs.com/) server from which calls to the external API are performed
 - Uses [Tailwindcss](https://tailwindcss.com/) as a CSS framework
 - Is designed having in mind modularity & scalability; Follows the latest coding standards guidelines
 - Performs correctly data & error validation
-- Tests the correct rendering of the form components using [Testing-library-React](https://testing-library.com/docs/react-testing-library/intro/)
+- Tests the correct rendering of the form components using [testing-library-react](https://testing-library.com/docs/react-testing-library/intro/)
 - Hosts both front and back-end on [Heroku](https://coding--challenge.herokuapp.com/)
 
 [Checkout the demo](https://coding--challenge.herokuapp.com/)
@@ -76,8 +76,8 @@ Thanks for your interest in contributing! There are many ways to contribute to t
 
 Wishlist:
 
-- Implement backend validation on routes
 - Improve GUI
+- Implement backend validation on routes
 - Add further Unite Testing
 
 ## License
