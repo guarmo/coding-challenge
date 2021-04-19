@@ -17,7 +17,7 @@ This coding challenge consists of a single page web application that:
 - Mocking and Data Validation
 - Unite testing
 
-[#Checkout the demo](https://coding--challenge.herokuapp.com/)
+[Checkout the demo](https://coding--challenge.herokuapp.com/)
 
 ## Technologies used
 
