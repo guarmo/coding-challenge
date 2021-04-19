@@ -10,7 +10,7 @@
 ## Overview
 
 This coding challenge consists of a single page web application that:
-- Fetches osm data of a location given with the coordinates as (geolocation box) from [Openstreetmap api](https://www.openstreetmap.org/api/0.6/map)
+- Fetches osm data of a location from [Openstreetmap api](https://www.openstreetmap.org/api/0.6/map), given with the coordinates as (geolocation box)
 - Converts the data into GeoJSON using [Osmtogeojson](https://github.com/tyrasd/osmtogeojson)
 - Flips latitude and longitude using [Geojson-flip](https://www.npmjs.com/package/geojson-flip)
 - Displays the dataset on a map using [Leaflet](https://leafletjs.com/) and [React-leaflet](https://react-leaflet.js.org/)
