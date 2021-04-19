@@ -52,6 +52,15 @@ To run the app locally, clone the repo and install the app using:
   $ npm run dev
 ```
 
+## Unity testing :hammer_and_wrench:
+
+To run the tests, clone the repo, install the app and then:
+
+```
+  $ cd client
+  $ npm run test
+```
+
 ## Contributors :sparkler:
 
 This project is designed and developed by [Armando Guarino](https://armandoguarino.dev)
