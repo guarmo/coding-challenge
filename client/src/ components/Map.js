@@ -8,11 +8,13 @@ import {
   Polygon,
   Polyline,
 } from "react-leaflet";
+import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import Spinner from "./Spinner";
 import NoData from "./NoData";
 
-const Map = ({ data: { geoJson, loading, center } }) => {
+const Map = ({ data: { geoJson, loading, center, error } }) => {
   const [showPoints, setShowPoints] = useState(true);
   const [showPolygons, setShowPolygons] = useState(true);
   const [showLines, setShowLines] = useState(true);
@@ -23,7 +25,7 @@ const Map = ({ data: { geoJson, loading, center } }) => {
         loading ? (
           <Spinner />
         ) : (
-          <NoData />
+          <NoData error={error} />
         )
       ) : (
         <>
@@ -48,7 +50,7 @@ const Map = ({ data: { geoJson, loading, center } }) => {
             </button>
           </div>
           <MapContainer
-            className="w-full h-full mt-10"
+            className="w-full h-full my-5"
             center={center}
             zoom={14}
             scrollWheelZoom={false}
@@ -63,11 +65,14 @@ const Map = ({ data: { geoJson, loading, center } }) => {
               geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "Point" && (
-                    <Marker position={feature.geometry.coordinates}>
+                    <Marker
+                      key={uuidv4()}
+                      position={feature.geometry.coordinates}
+                    >
                       <Popup>
                         {Object.entries(feature.properties).map(
                           (key, value) => (
-                            <h1>{`${key}: ${value}`}</h1>
+                            <h1 key={uuidv4()}>{`${key}: ${value}`}</h1>
                           )
                         )}
                       </Popup>
@@ -81,13 +86,14 @@ const Map = ({ data: { geoJson, loading, center } }) => {
                 (feature) =>
                   feature.geometry.type === "Polygon" && (
                     <Polygon
+                      key={uuidv4()}
                       pathOptions={{ color: "purple" }}
                       positions={[feature.geometry.coordinates]}
                     >
                       <Popup>
                         {Object.entries(feature.properties).map(
                           (key, value) => (
-                            <h1>{`${key}: ${value}`}</h1>
+                            <h1 key={uuidv4()}>{`${key}: ${value}`}</h1>
                           )
                         )}
                       </Popup>
@@ -101,13 +107,14 @@ const Map = ({ data: { geoJson, loading, center } }) => {
                 (feature) =>
                   feature.geometry.type === "LineString" && (
                     <Polyline
+                      key={uuidv4()}
                       pathOptions={{ color: "green" }}
                       positions={[feature.geometry.coordinates]}
                     >
                       <Popup>
                         {Object.entries(feature.properties).map(
                           (key, value) => (
-                            <h1>{`${key}: ${value}`}</h1>
+                            <h1 key={uuidv4()}>{`${key}: ${value}`}</h1>
                           )
                         )}
                       </Popup>
@@ -119,6 +126,10 @@ const Map = ({ data: { geoJson, loading, center } }) => {
       )}
     </>
   );
+};
+
+Map.propTypes = {
+  data: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
