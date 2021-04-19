@@ -75,7 +75,7 @@ This project is designed and developed by [Armando Guarino](https://armandoguari
 
 ## Contributing
 
-Thanks for your interest in contributing! There are many ways to contribute to this project. Get [started here](CONTRIBUTING.md).
+Thanks for your interest in contributing! There are many ways to contribute to this project. Find out how [here](https://gist.github.com/MarcDiethelm/7303312).
 
 Wishlist:
 
