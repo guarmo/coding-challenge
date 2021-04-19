@@ -79,7 +79,7 @@ Wishlist:
 
 - Improve GUI
 - Implement backend validation on routes
-- Add further Unite Testing
+- Add further Unity Testing
 
 ## License
 
