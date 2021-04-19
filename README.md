@@ -18,9 +18,10 @@ This coding challenge consists of a single page web application that:
 - Has an integrated custom [express](https://expressjs.com/) server from which calls to the external API are performed
 - Uses [Tailwindcss](https://tailwindcss.com/) as a CSS framework
 - Is designed having in mind modularity & scalability; Follows the latest coding standards guidelines
-- Performs correctly data & error validation
+- Correctly performs data & error validation
 - Tests the correct rendering of the form components using [testing-library-react](https://testing-library.com/docs/react-testing-library/intro/)
 - Hosts both front and back-end on [Heroku](https://coding--challenge.herokuapp.com/)
+- Has used [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) as a Git workflow
 
 [Checkout the demo](https://coding--challenge.herokuapp.com/)
 
