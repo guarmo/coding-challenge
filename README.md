@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# coding-challenge :rocket:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TECHVolunteer is designed to connect charities/NFPs to budding developers/designers (volunteers) who can work for the charity on a specific job on an unpaid basis.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+Budding devs and UX designers can have a profile which is viewable by charities. Charities who need help can search for these volunteers on the volunteers board or they can post a ‘job’ up which the volunteers could contact them about.
 
-### `npm start`
+This is intended to bridge the gap for aspiring developers/designers between the ’student’ world and the ‘commercial’ world, by getting real-world experience to put on their portfolio.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It is also useful for charities as they can get help without having to pay for it.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[Checkout the demo](https://v28-bears-team-10-kappa.vercel.app/)
 
-### `npm test`
+## Tech stacks
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React v17.0.1
+- NextJS v10.0.8
+- Chakra UI v1
+- Mongoose v5.11.19
+- Hosted on Vercel
 
-### `npm run build`
+## Setup :hammer_and_wrench:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run the app locally, clone the repo and install the app using:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+  $ git clone https://github.com/chingu-voyages/v28-bears-team-10
+  $ cd v28-bears-team-10
+  $ npm install
+  $ npm run dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributors :sparkler:
 
-### `npm run eject`
+This project is designed and developed by the [Chingu](https://www.chingu.io/) Voyage-28 Bears team 10 - [JonHill](https://github.com/jondhill333) [Armando](https://github.com/guarmo), [Greg](https://github.com/gregogun), and [Duncan](https://github.com/duncanjbain)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Thanks for your interest in contributing! There are many ways to contribute to this project. Get [started here](CONTRIBUTING.md).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Wishlist:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Filter on the volunteers page to filter results by certain metrics
+- Documentation page for help and FAQ's
+- Update tips on sign up forms
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is open source and available under the [MIT License](LICENSE.md).
