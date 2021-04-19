@@ -1,39 +1,60 @@
 # coding-challenge :rocket:
 
-TECHVolunteer is designed to connect charities/NFPs to budding developers/designers (volunteers) who can work for the charity on a specific job on an unpaid basis.
+![GitHub repo size](https://img.shields.io/github/repo-size/guarmo/coding-challenge)
+![GitHub contributors](https://img.shields.io/github/contributors/guarmo/coding-challenge)
+![GitHub stars](https://img.shields.io/github/stars/guarmo/coding-challenge?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/_guarmo?style=social)
+
+![Screenshot](Screenshot.png)
 
 ## Overview
 
-Budding devs and UX designers can have a profile which is viewable by charities. Charities who need help can search for these volunteers on the volunteers board or they can post a ‘job’ up which the volunteers could contact them about.
+This coding challenge consists of a single page web application that:
+- Fetches osm data of a location given with the coordinates as (geolocation box)
+- Converts the data into GeoJSON
+- Displays the dataset on a map
+- Code Quality
+- Mocking and Data Validation
+- Unite testing
 
-This is intended to bridge the gap for aspiring developers/designers between the ’student’ world and the ‘commercial’ world, by getting real-world experience to put on their portfolio.
+[Checkout the demo](https://coding--challenge.herokuapp.com/)
 
-It is also useful for charities as they can get help without having to pay for it.
-
-[Checkout the demo](https://v28-bears-team-10-kappa.vercel.app/)
-
-## Tech stacks
+## Technologies used
 
 - React v17.0.1
-- NextJS v10.0.8
-- Chakra UI v1
-- Mongoose v5.11.19
-- Hosted on Vercel
+- Redux v4.0.5
+- React-redux v7.2.2
+- Redux-thunk v2.3.0
+- Redux-devtools-extension v2.13.8
+- Tailwindcss v1.9.6
+- React-icons v4.2.0
+- Uuid: v8.3.2
+- Express v4.17.1
+- Axios v0.21.1
+- Leaflet v1.7.1
+- React-leaflet v3.1.0
+- Geojson-flip v1.0.0
+- Osmtogeojson v3.0.0-beta.4
+- Concurrently v6.0.2
+- Nodemon v2.0.7
 
 ## Setup :hammer_and_wrench:
 
 To run the app locally, clone the repo and install the app using:
 
 ```
-  $ git clone https://github.com/chingu-voyages/v28-bears-team-10
-  $ cd v28-bears-team-10
+  $ git clone https://github.com/guarmo/coding-challenge.git
+  $ cd coding-challenge
+  $ cd client
+  $ npm install
+  $ cd ..
   $ npm install
   $ npm run dev
 ```
 
 ## Contributors :sparkler:
 
-This project is designed and developed by the [Chingu](https://www.chingu.io/) Voyage-28 Bears team 10 - [JonHill](https://github.com/jondhill333) [Armando](https://github.com/guarmo), [Greg](https://github.com/gregogun), and [Duncan](https://github.com/duncanjbain)
+This project is designed and developed by [Armando Guarino](https://armandoguarino.dev)
 
 ## Contributing
 
@@ -41,9 +62,9 @@ Thanks for your interest in contributing! There are many ways to contribute to t
 
 Wishlist:
 
-- Filter on the volunteers page to filter results by certain metrics
-- Documentation page for help and FAQ's
-- Update tips on sign up forms
+- Implement backend validation on routes
+- Improve GUI
+- Add further Unite Testing
 
 ## License
 
