@@ -17,7 +17,7 @@ This coding challenge consists of a single page web application that:
 - Mocking and Data Validation
 - Unite testing
 
-[Checkout the demo](https://coding--challenge.herokuapp.com/)
+[#Checkout the demo](https://coding--challenge.herokuapp.com/)
 
 ## Technologies used
 
@@ -37,6 +37,7 @@ This coding challenge consists of a single page web application that:
 - Osmtogeojson v3.0.0-beta.4
 - Concurrently v6.0.2
 - Nodemon v2.0.7
+- Hosted on Heroku
 
 ## Setup :hammer_and_wrench:
 
@@ -54,7 +55,7 @@ To run the app locally, clone the repo and install the app using:
 
 ## Unity testing :hammer_and_wrench:
 
-To run the tests, clone the repo, install the app and then:
+To run the tests, after the installation run:
 
 ```
   $ cd client
