@@ -44,7 +44,7 @@ This coding challenge consists of a single page web application that:
 - Concurrently v6.0.2
 - Nodemon v2.0.7
 
-## Setup :hammer_and_wrench:
+## Run locally :hammer_and_wrench:
 
 To run the app locally, clone the repo and install the app using:
 
@@ -57,6 +57,8 @@ To run the app locally, clone the repo and install the app using:
   $ npm install
   $ npm run dev
 ```
+
+Your app should now be running on [localhost:5000](http://localhost:5000/).
 
 ## Unity testing :hammer_and_wrench:
 
