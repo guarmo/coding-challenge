@@ -26,7 +26,7 @@ const Form = ({ clearData, clearError }) => {
             className="w-full h-10 rounded p-2"
             value={coords}
             onChange={(e) => setCoords(e.target.value)}
-            pattern="^(\s*-?\d+(\.\d+)?)(\s*,\s*-?\d+(\.\d+)?)*$"
+            pattern="^(-?\d*\.?\d*)(,-?\d*\.?\d*)*$"
             required
           />
           <button
