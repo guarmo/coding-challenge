@@ -3,27 +3,30 @@ import { connect } from "react-redux";
 import {
   MapContainer,
   TileLayer,
-  GeoJSON,
   Marker,
   Popup,
-  LayerGroup,
-  LayersControl,
-  Circle,
   Polygon,
   Polyline,
-  CircleMarker,
-  Rectangle,
 } from "react-leaflet";
+import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
-const Map = ({ data }) => {
+import Spinner from "./Spinner";
+import NoData from "./NoData";
+
+const Map = ({ data: { geoJson, loading, center, error } }) => {
   const [showPoints, setShowPoints] = useState(true);
-  const [showPolygons, setShowPolygons] = useState(false);
-  const [showLines, setShowLines] = useState(false);
+  const [showPolygons, setShowPolygons] = useState(true);
+  const [showLines, setShowLines] = useState(true);
 
   return (
     <>
-      {!data.geoJson ? (
-        <h1>Loading...</h1>
+      {!geoJson || geoJson.features === [] ? (
+        loading ? (
+          <Spinner />
+        ) : (
+          <NoData error={error} />
+        )
       ) : (
         <>
           <div className="mt-10">
@@ -31,25 +34,25 @@ const Map = ({ data }) => {
               onClick={() => setShowPoints(!showPoints)}
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
-              Show Points
+              {showPoints ? "Hide Points" : "Show Points"}
             </button>
             <button
               onClick={() => setShowPolygons(!showPolygons)}
-              className="mx-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="mx-2 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
             >
-              Show Polygons
+              {showPolygons ? "Hide Polygons" : "Show Polygons"}
             </button>
             <button
               onClick={() => setShowLines(!showLines)}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
             >
-              Show Lines
+              {showLines ? "Hide Lines" : "Show Lines"}
             </button>
           </div>
           <MapContainer
-            className="w-full h-full mt-10"
-            center={[48.1414957, 11.5476037]}
-            zoom={13}
+            className="w-full h-full my-5"
+            center={center}
+            zoom={12}
             scrollWheelZoom={false}
           >
             <TileLayer
@@ -59,14 +62,17 @@ const Map = ({ data }) => {
 
             {/* Points */}
             {showPoints &&
-              data.geoJson.features.map(
+              geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "Point" && (
-                    <Marker position={feature.geometry.coordinates}>
+                    <Marker
+                      key={uuidv4()}
+                      position={feature.geometry.coordinates}
+                    >
                       <Popup>
                         {Object.entries(feature.properties).map(
                           (key, value) => (
-                            <h1>{`${key}: ${value}`}</h1>
+                            <h1 key={uuidv4()}>{`${key}: ${value}`}</h1>
                           )
                         )}
                       </Popup>
@@ -76,17 +82,18 @@ const Map = ({ data }) => {
 
             {/* Polygons */}
             {showPolygons &&
-              data.geoJson.features.map(
+              geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "Polygon" && (
                     <Polygon
+                      key={uuidv4()}
                       pathOptions={{ color: "purple" }}
                       positions={[feature.geometry.coordinates]}
                     >
                       <Popup>
                         {Object.entries(feature.properties).map(
                           (key, value) => (
-                            <h1>{`${key}: ${value}`}</h1>
+                            <h1 key={uuidv4()}>{`${key}: ${value}`}</h1>
                           )
                         )}
                       </Popup>
@@ -96,17 +103,18 @@ const Map = ({ data }) => {
 
             {/* Lines */}
             {showLines &&
-              data.geoJson.features.map(
+              geoJson.features.map(
                 (feature) =>
                   feature.geometry.type === "LineString" && (
                     <Polyline
-                      pathOptions={{ color: "red" }}
+                      key={uuidv4()}
+                      pathOptions={{ color: "green" }}
                       positions={[feature.geometry.coordinates]}
                     >
                       <Popup>
                         {Object.entries(feature.properties).map(
                           (key, value) => (
-                            <h1>{`${key}: ${value}`}</h1>
+                            <h1 key={uuidv4()}>{`${key}: ${value}`}</h1>
                           )
                         )}
                       </Popup>
@@ -118,6 +126,10 @@ const Map = ({ data }) => {
       )}
     </>
   );
+};
+
+Map.propTypes = {
+  data: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
