@@ -10,12 +10,17 @@
 ## Overview
 
 This coding challenge consists of a single page web application that:
-- Fetches osm data of a location given with the coordinates as (geolocation box)
-- Converts the data into GeoJSON
-- Displays the dataset on a map
-- Code Quality
-- Mocking and Data Validation
-- Unite testing
+- Fetches osm data of a location given with the coordinates as (geolocation box) from [Openstreetmap api](https://www.openstreetmap.org/api/0.6/map)
+- Converts the data into GeoJSON using [Osmtogeojson](https://github.com/tyrasd/osmtogeojson)
+- Flips latitude and longitude using [Geojson-flip](https://www.npmjs.com/package/geojson-flip)
+- Displays the dataset on a map using [Leaflet](https://leafletjs.com/) and [React-leaflet](https://react-leaflet.js.org/)
+- Shares state across components using [Redux](https://redux.js.org/)
+- Has an integrated custom express server from which calls to the external API are performed
+- Uses [Tailwindcss](https://tailwindcss.com/) as a CSS framework
+- Is designed having in mind modularity & scalability; Follows the latest coding standards guidelines
+- Performs correctly data & error validation
+- Tests the correct rendering of the form components using [Testing-library-React](https://testing-library.com/docs/react-testing-library/intro/)
+- Hosts both front and back-end on [Heroku](https://coding--challenge.herokuapp.com/)
 
 [Checkout the demo](https://coding--challenge.herokuapp.com/)
 
@@ -37,7 +42,6 @@ This coding challenge consists of a single page web application that:
 - Osmtogeojson v3.0.0-beta.4
 - Concurrently v6.0.2
 - Nodemon v2.0.7
-- Hosted on Heroku
 
 ## Setup :hammer_and_wrench:
 
